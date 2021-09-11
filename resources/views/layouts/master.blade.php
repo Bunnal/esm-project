@@ -13,14 +13,24 @@
   {{-- <link rel="stylesheet" href="{{asset("fonts/all.min.css")}}"> --}}
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset("css/esmstyle.min.css")}}">
+  <style>
+
+.brand-text {
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+ }
+  </style>
 
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   @include('header.navbar')
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="#" class="brand-link text-center"><span class="brand-text font-weight-light" style="font-size: 1.5rem;">@yield('title_page')</span></a>
+  <aside class="main-sidebar sidebar-dark-primary">
+    <a href="#" class="brand-link text-center text-uppercase font-weight-light"><h1 class="brand-text font-weight-light" style="font-size: 1.5rem;">@yield('title_page')</h1></a>
     @yield('sidebar')
   </aside>
 

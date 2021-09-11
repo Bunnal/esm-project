@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Ione\Eleave;
+namespace App\Http\Controllers\Eleave;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User\User;
+use App\User;
 use App\Models\User\UserDepartment;
 use App\Models\Eleave\LeaveDay;
 use App\Models\Eleave\LeaveType;
@@ -45,7 +45,7 @@ class LeaveTakeController extends Controller
               $leave_takes[$key]['shift'] = LeaveDay::select('shift')->where('id',$leave_take->leave_day_id)->first()->shift;
                 
            }
-        return view('ione.eleave.leaves.index',compact('leave_takes','results'));
+        return view('eleave.leaves.index',compact('leave_takes','results'));
     }
 
     public function create()
@@ -65,7 +65,7 @@ class LeaveTakeController extends Controller
         $handoverjobs  =collect([]);
         foreach ($departments as $key => $department)
         {
-            // $department['handoverjob'] = User::where('user_department_id',$department->id)->where('id','!=',auth()->id())->get();
+           
             $handoverjobs->push(User::whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
             $supervisors->push(User::where('role_id',3)->whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
             $hods->push(User::where('role_id',4)->whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
@@ -73,10 +73,8 @@ class LeaveTakeController extends Controller
         $handoverjobs =  $handoverjobs->flatten()->unique('username');
         $supervisors =  $supervisors->flatten()->unique('username');
         $hods = $hods->flatten()->unique('username');
-        // $supervisors =  User::where('role_id',3)->whereRaw('user_department_id')->where('id','!=',auth()->id())->get();
-        // $hods =  User::where('role_id',4)->whereRaw('user_department_id')->where('id','!=',auth()->id())->get();
-        // dd( $hods);
-        return view('ione.eleave.leaves.create',compact('departments','split','leavedays','leavetypes','leavenumberics','handoverjobs','supervisors','hods'));
+        
+        return view('eleave.leaves.create',compact('departments','split','leavedays','leavetypes','leavenumberics','handoverjobs','supervisors','hods'));
     }
 
     public function store(Request $request)
@@ -138,7 +136,7 @@ class LeaveTakeController extends Controller
             $LeaveTake ['name'] = $LeaveTake->leave_type->name;
             $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;
             $LeaveTake ['hand_over_job'] = $LeaveTake->hand_over_job;
-            Mail::send('ione.eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
+            Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
                 if (auth()->user()->email != null){
                     $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
                             foreach( $handoverjobs as $handoverjob){
@@ -191,7 +189,7 @@ class LeaveTakeController extends Controller
         $supervisors =  $supervisors->flatten()->unique('username');
         $hods = $hods->flatten()->unique('username');
         
-        return view('ione.eleave.leaves.edit',compact('departments','leavetake','leavedays','leavetypes','leavenumberics','handoverjobs','supervisors','hods'));
+        return view('eleave.leaves.edit',compact('departments','leavetake','leavedays','leavetypes','leavenumberics','handoverjobs','supervisors','hods'));
     }
 
     public function update(Request $request, $id)
@@ -316,7 +314,7 @@ class LeaveTakeController extends Controller
         $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;
         $LeaveTake ['hand_over_job'] = $LeaveTake->hand_over_job;
   
-       return view('ione.eleave.leaves.leaveReport',compact('LeaveTake'));
+       return view('eleave.leaves.leaveReport',compact('LeaveTake'));
     }
 
 }

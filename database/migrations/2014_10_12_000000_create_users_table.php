@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->date('dob');
             $table->bigInteger('user_department_id');
             $table->integer('position_id');
+            $table->integer('role_id');
             $table->integer('user_service_grade_id');
             $table->string('status', 7)->default('enable');
             $table->string('image');

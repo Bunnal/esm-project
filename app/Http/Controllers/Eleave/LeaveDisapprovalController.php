@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Ione\Eleave;
+namespace App\Http\Controllers\Eleave;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User\User;
+use App\User;
 use App\Models\User\UserDepartment;
 use App\Models\Eleave\LeaveDay;
 use App\Models\Eleave\LeaveType;
@@ -29,7 +29,7 @@ class LeaveDisapprovalController extends Controller
                 $results[$key]['link'] = Menu::select('link')->where('id',$result->menu_id)->first()->link;
             }
       $leave_takes = LeaveTake::whereRaw('(sup_approval = ? or hod_approval = ? or hoj_approval = ?) and Datediff(CURRENT_DATE(),startdate) >= ? ',array('pending','pending','pending','3'))->orderByDesc('startdate')->get();  
-     // dd( $leave_takes);
+    //  dd( $leave_takes);
      foreach($leave_takes as $key => $leave_take)
      {
        $leave_takes[$key]['username'] = User::select('username')->where('id',$leave_take->user_id)->first()->username;
@@ -39,7 +39,7 @@ class LeaveDisapprovalController extends Controller
        $leave_takes[$key]['shift'] = LeaveDay::select('shift')->where('id',$leave_take->leave_day_id)->first()->shift;
          
      }
-      return view('ione.eleave.leavedisapprovals.index',compact('leave_takes','results'));
+      return view('eleave.leavedisapprovals.index',compact('leave_takes','results'));
     }
    
     public function show($id)

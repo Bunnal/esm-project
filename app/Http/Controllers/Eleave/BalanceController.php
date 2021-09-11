@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Ione\Eleave;
+namespace App\Http\Controllers\Eleave;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User\User;
+use App\User;
 use App\Models\User\UserDepartment;
 use App\Models\Eleave\LeaveDay;
 use App\Models\Eleave\LeaveType;

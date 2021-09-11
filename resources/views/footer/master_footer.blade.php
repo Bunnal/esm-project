@@ -1,3 +1,3 @@
-<footer class="main-footer">
+{{-- <footer class="main-footer">
     
-</footer>
+</footer> --}}

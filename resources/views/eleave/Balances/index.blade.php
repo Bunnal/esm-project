@@ -1,4 +1,4 @@
-@extends('layout.admin-master')
+@extends('layouts.main-master')
 @section('title', 'Leave Detail')
 @section('css')
 <link href="{{asset('css/ione/styles.css')}}" rel="stylesheet">

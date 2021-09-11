@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Eleave;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User\User;
+use App\User;
 use App\Models\User\UserDepartment;
 use App\Models\Eleave\LeaveDay;
 use App\Models\Eleave\LeaveType;

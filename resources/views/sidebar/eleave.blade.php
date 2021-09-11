@@ -3,23 +3,23 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route("createleave")}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Active Page</p>
+              <p>Add New Leave</p>
             </a>
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{route("leaveapproval")}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Active Page</p>
+            <p>Leave Approval</p>
           </a>
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{route("leavedisapproval")}}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Active Page</p>
+            <p>Disapproval</p>
           </a>
         </li>
 

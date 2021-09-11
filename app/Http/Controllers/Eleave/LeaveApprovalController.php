@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Ione\Eleave;
+namespace App\Http\Controllers\Eleave;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User\User;
+use App\User;
 use App\Models\User\UserDepartment;
 use App\Models\Eleave\LeaveDay;
 use App\Models\Eleave\LeaveType;
@@ -40,7 +40,7 @@ class LeaveApprovalController extends Controller
       $leave_takes[$key]['shift'] = LeaveDay::select('shift')->where('id',$leave_take->leave_day_id)->first()->shift;
         
     }
-     return view('ione.eleave.leaveapprovals.index',compact('leave_takes','results'));
+     return view('eleave.leaveapprovals.index',compact('leave_takes','results'));
    }
    public function show($id)
    {

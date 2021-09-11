@@ -1,4 +1,4 @@
-@extends('layout.admin-master')
+@extends('layouts.main-master')
 @section('title', 'Report | Dashboard ')
 @section('sibar')
 <li class="nav-item">

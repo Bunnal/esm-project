@@ -1,4 +1,4 @@
-@extends('layout.admin-master')
+@extends('layouts.main-master')
 @section('title', 'Dashboard')
 @section('css')
 <link href="{{asset('css/admin/dataTables.bootstrap4.min.css')}}" rel="stylesheet">

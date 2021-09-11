@@ -1,5 +1,9 @@
-@extends('layout.admin-master')
-@section('title', 'Dashboard')
+@extends('layouts.master')
+@section('title', 'Eleave')
+@section('title_page', 'Eleave')
+@section('sidebar')
+    @include('sidebar.eleave')
+@endsection
 @section('css')
 <link href="{{asset('css/admin/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <style>
