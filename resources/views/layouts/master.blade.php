@@ -9,6 +9,7 @@
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   {{-- <link rel="stylesheet" href="{{asset("fonts/all.min.css")}}"> --}}
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset("css/esmstyle.min.css")}}">
@@ -19,8 +20,8 @@
   @include('header.navbar')
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="#" class="brand-link text-center"><span class="brand-text font-weight-light">ESM</span></a>
-    @include('sidebar.left_sidebar')
+    <a href="#" class="brand-link text-center"><span class="brand-text font-weight-light" style="font-size: 1.5rem;">@yield('title_page')</span></a>
+    @yield('sidebar')
   </aside>
 
   <!-- Content Wrapper. Contains page content -->

@@ -37,22 +37,52 @@ class DatabaseSeeder extends Seeder
             UserDepartment::create($department);
 
         $roles = [
-            ['role' => 'Admin'],
-            ['role' => 'Staff'],
-            ['role' => 'Sup'],
-            ['role' => 'Hod'],
+           'Admin','user','guest'
         ];
 
         foreach($roles as $role)
-            Role::create($role);
+            Role::create([
+                'name' =>$role ,
+            ]);
 
-        $userAdmin = [
-            ['employee_id' => '001','username' => 'admin', 'email' => 'admin@admin.com','hod_email' => 'admin@ione.com','phone_number' => '010777777', 'hod_phone' => '023888888','annual_leave' =>'18','date_joined' => '2019-01-01', 'password' => Hash::make('admin123'), 'Sex' => 'Male', 'DOB' => '1990-01-01', 'user_department_id' => 1, 'position_id' => 1, 'role_id' => 1,'user_service_grade_id' =>1, 'image' => 'images/user.png'],
-            ['employee_id' => '002','username' => 'user', 'email' => 'user@user.com','hod_email' => 'user@ione.com','phone_number' => '077777777', 'hod_phone' => '023999999', 'annual_leave' =>'18','date_joined' => '2019-01-01','password' => Hash::make('user123'), 'Sex' => 'Male', 'DOB' => '1990-01-01', 'user_department_id' => 1, 'position_id' => 2, 'role_id' => 2,'user_service_grade_id' => 2, 'image' => 'images/user.png'],
-          
-        ];
+        $admin = User::create([
+            'employee_id' => '001',
+            'username' => 'admin', 
+            'email' => 'admin@admin.com',
+            'hod_email' => 'admin@demo.com',
+            'phone_number' => '010777777', 
+            'hod_phone' => '023888888',
+            'annual_leave' =>'18',
+            'date_joined' => '2019-01-01', 
+            'password' => Hash::make('123'), 
+            'gender' => 'Male', 
+            'dob' => '1990-01-01', 
+            'user_department_id' => 1, 
+            'position_id' => 1, 
+            'user_service_grade_id' =>1, 
+            'image' => 'images/user.png'
+        ]);
+        $user = User::create(
+            ['employee_id' => '002',
+            'username' => 'user', 
+            'email' => 'user@user.com',
+            'hod_email' => 'user@demo.com',
+            'phone_number' => '010777700', 
+            'hod_phone' => '023888888',
+            'annual_leave' =>'18',
+            'date_joined' => '2019-01-01', 
+            'password' => Hash::make('123'), 
+            'gender' => 'Male', 
+            'dob' => '1990-01-01', 
+            'user_department_id' => 1, 
+            'position_id' => 1, 
+            'user_service_grade_id' =>1, 
+            'image' => 'images/user.png']
+        );
+        $adminRole = Role::where('name' ,'admin')->first();
+        $userRole = Role::where('name' ,'user')->first();
 
-        foreach($userAdmin as $user)
-            User::create($user);
+        $admin->roles()->attach($adminRole);
+        $user->roles()->attach($userRole);
     }
 }
