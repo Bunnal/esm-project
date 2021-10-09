@@ -58,7 +58,7 @@ class LeaveApprovalController extends Controller
         $LeaveTake = LeaveTake::find($id);
         $LeaveTake ['department'] = $LeaveTake->department->department;
         $LeaveTake ['username'] = $LeaveTake->user->username;
-        $LeaveTake ['Sex'] = $LeaveTake->user->Sex;
+        $LeaveTake ['gender'] = $LeaveTake->user->gender;
         $LeaveTake ['shift'] = $LeaveTake->leave_day->shift;
         $LeaveTake ['name'] = $LeaveTake->leave_type->name;
         $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;

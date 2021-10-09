@@ -28,6 +28,8 @@ class CreateLeaveTakesTable extends Migration
             $table->integer('leave_type_id');
             $table->integer('leave_day_id');
             $table->integer('leave_numberic_id');
+            $table->string("hod")->nullable();
+            $table->string("sup")->nullable();
             $table->timestamps();
         });
     }

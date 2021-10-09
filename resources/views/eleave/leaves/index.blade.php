@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Dashboard')
+@section('title_page', 'Eleave')
 @section('css')
-<link href="{{asset('css/admin/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{asset('css/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <style>
   .no-border {
   border: 0;
@@ -16,12 +17,12 @@
     @include('sidebar.eleave')
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
+{{-- <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/eleave">@lang('messages.dashboard')</a></li>
         <li class="breadcrumb-item active" aria-current="page">@lang('messages.leave')</li>
     </ol>
-</nav>
+</nav> --}}
 <!-- Show Error if delete own account -->
 {{-- <div class="text-center">
     @if (session('msg'))
@@ -48,7 +49,7 @@
       </div>
     </div>
 @endif
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 mt-4">
     <div class="card-header py-3">
         <div class="form-group">
             <a href="{{ route('createleave') }}"><button class="btn btn-success btn-sm mr-1 "><i class="fas fa-plus-circle"></i> @lang('messages.new_leave')</button></a>
@@ -70,6 +71,7 @@
                         <th>@lang('messages.hand_over')</th>
                         <th>@lang('messages.job')</th>
                         @foreach ($results as $key)
+                        {{$key->name}}
                         @if ($key->name == 'SupApproval') 
                         <th>@lang('messages.sup')</th>
                         @elseif ($key->name == 'HodApproval')
@@ -294,9 +296,9 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.sex'):</label>
+                <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">Gender:</label>
                 <div class="col-sm-8">
-                    <input type="text" name="sex" id="sex" class="form-control no-border"/>
+                    <input type="text" name="gender" id="gender" class="form-control no-border"/>
                 </div>
               </div>
               <div class="form-group row">
@@ -353,8 +355,8 @@
   </div>
 @endsection
 @section('js')
-<script src="{{asset('js/admin/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('js/admin/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('js/datatable/jquery.dataTables.js')}}"></script>
+<script src="{{asset('js/datatable/dataTables.bootstrap4.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         $('#dataTable').DataTable({
@@ -366,7 +368,7 @@
             })
             $('.yes_btn').click(function(){
                 $.ajax({
-                    url:"/leave/delete/"+id,
+                    url:"leave/delete/"+id,
                     method: "get",
                     success: function() {
                         console.log(id);
@@ -381,15 +383,20 @@
            var id = $(this).attr("id"); 
            var text = "";
         $.ajax({
-            url:"/leave/show/"+id,
+            url:"leave/show/"+id,
             method:"GET",
             success: function(LeaveTake ){
+              if(LeaveTake.department.length > 1) {
                 LeaveTake.department.forEach(element => {
-                   text+= element.department+ " , ";
+                  text+= element.department+ " , "
                 });
+                }else {
+                  text+= LeaveTake.department[0].department;
+                }
+                console.log(LeaveTake);
                 $("#showleave #department").text(text);
                 $("#showleave #username").val(LeaveTake.username);
-                $("#showleave #sex").val(LeaveTake.Sex);
+                $("#showleave #gender").val(LeaveTake.gender);
                 $("#showleave #date_app").val(LeaveTake.date_app);
                 $("#showleave #hand_over_job").val(LeaveTake.hand_over_job);
                 $("#showleave #name").val(LeaveTake.name);
@@ -422,7 +429,7 @@
             var formdata = new FormData();
               formdata.append("hoj_approval",$("#hojModal #hoj_approval").val());
             $.ajax({
-              url:"/leave/update_hoj_approval/"+id,
+              url:"leave/update_hoj_approval/"+id,
               method:"post",
               data:formdata,
               processData:false,
@@ -452,7 +459,7 @@
           var formdata = new FormData();
             formdata.append("sup_approval",$("#supModal #sup_approval").val());
           $.ajax({
-              url:"/leave/update_sup_approval/"+id,
+              url:"leave/update_sup_approval/"+id,
               method:"post",
               data:formdata,
               processData:false,
@@ -482,7 +489,7 @@
           var formdata = new FormData();
           formdata.append("hod_approval",$("#hodModal #hod_approval").val());
           $.ajax({
-              url:"/leave/update_hod_approval/"+id,
+              url:"leave/update_hod_approval/"+id,
               method:"post",
               data:formdata,
               processData:false,

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+  <meta name="csrf-token" content="{{csrf_token()}}">
   <title>ESM | @yield('title')</title>
 
   <!-- Font Awesome Icons -->
@@ -12,16 +12,17 @@
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   {{-- <link rel="stylesheet" href="{{asset("fonts/all.min.css")}}"> --}}
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset("css/esmstyle.min.css")}}">
+  @yield('css')
+  <link rel="stylesheet" href="{{asset("css/esmstyle.css")}}">
   <style>
 
-.brand-text {
-    font-size: 1rem;
-    font-weight: 800;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .05rem;
- }
+  .brand-text {
+      font-size: 1rem;
+      font-weight: 800;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .05rem;
+  }
   </style>
 
 </head>
@@ -36,20 +37,9 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
+    <div class="content pt-1 pb-2">
       <div class="container-fluid">
         @yield('content')
       </div>
@@ -81,5 +71,6 @@
 <script src="{{asset("js/bootstrap.bundle.min.js")}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset("js/esm.min.js")}}"></script>
+@yield('js')
 </body>
 </html>

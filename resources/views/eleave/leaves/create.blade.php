@@ -1,9 +1,10 @@
 @extends('layouts.master')
 @section('title', 'Create Leave')
+@section('title_page', 'Eleave')
 @section('css')
-<link href="{{asset('css/ione/styles.css')}}" rel="stylesheet">
-<link href="{{asset('css/ione/bootstrap-datetimepicker.css')}}" rel="stylesheet">
-<link href="{{asset('css/admin/chosen.css')}}" rel="stylesheet"/>
+<link href="{{asset('css/styles.css')}}" rel="stylesheet">
+<link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
+<link href="{{asset('css/chosen.css')}}" rel="stylesheet"/>
 <style>
     .inline_btn{
         display: inline-block;
@@ -18,13 +19,14 @@
     @include('sidebar.eleave')
 @endsection
 @section('content')
- <nav aria-label="breadcrumb">
+ {{-- <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/user">@lang('messages.dashboard')</a></li>
         <li class="breadcrumb-item"><a href="{{route('leave')}}">@lang('messages.leave')</a></li>
         <li class="breadcrumb-item active" aria-current="page">@lang('messages.create')</li>
     </ol>
-</nav>
+</nav> --}}
+
 <div class="card uper">
     <div class="card-header">
        @lang('messages.create_new_leave')
@@ -53,7 +55,7 @@
                         <input name="user_department_id" type="hidden" value="{{auth()->user()->user_department_id}}">
                         <select class="chosen-select form-control" multiple disabled>
                             @foreach($departments as $key => $department)
-                                <option  selected >{{$department->department}}</option>
+                                <option  selected>{{$department->department}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -64,8 +66,8 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>@lang('messages.sex')</label>
-                        <input type="text" name="sex" class="form-control" value="{{auth()->user()->Sex}}" readonly/>
+                        <label>Gender</label>
+                        <input type="text" name="gender" class="form-control" value="{{auth()->user()->gender}}" readonly/>
                     </div>
                     <div class="form-group col-md-6">
                         <label>@lang('messages.date_of_application')</label>
@@ -191,10 +193,11 @@
         </div>
     </div>
 </div>
+
 @endsection
 @section('js')
-<script src="{{asset('js/ione/moment.min.js')}}"></script>
-<script src="{{asset('js/ione/bootstrap-datetimepicker.js')}}"></script>
+<script src="{{asset('js/moment.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
 
     <script>
        var today = new Date();
@@ -260,7 +263,7 @@
         });
         
     </script>
-    <script src="{{asset('js/admin/chosen.js')}}" ></script>
+    <script src="{{asset('js/chosen.js')}}" ></script>
     <script>
          $(".chosen-select").chosen()
     </script>

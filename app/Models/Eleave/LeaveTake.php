@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class LeaveTake extends Model
 {
+    protected $guarded = ['_token'];
     public function user()
     {
-        return $this->belongsto('App\Models\User\User','user_id');
+        return $this->belongsto('App\User','user_id');
     }
     public function leave_type()
     {

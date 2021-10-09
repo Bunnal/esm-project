@@ -131,7 +131,7 @@ class LeaveTakeController extends Controller
         $LeaveTake = LeaveTake::where('user_id',auth()->user()->id)->latest('id')->first();
             $LeaveTake ['department'] = $LeaveTake->department->department;
             $LeaveTake ['username'] = $LeaveTake->user->username;
-            $LeaveTake ['Sex'] = $LeaveTake->user->Sex;
+            $LeaveTake ['gender'] = $LeaveTake->user->gender;
             $LeaveTake ['shift'] = $LeaveTake->leave_day->shift;
             $LeaveTake ['name'] = $LeaveTake->leave_type->name;
             $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;
@@ -147,10 +147,10 @@ class LeaveTakeController extends Controller
                             }
                 }
                 $message->cc(auth()->user()->hod_email)->subject('Take Leave');
-                $message->to(ENV('MAIL_TO'))->subject('Take Leave');
-                $message->from(ENV('MAIL_FROM'))->subject('Take Leave');
+                // $message->to(ENV('MAIL_TO'))->subject('Take Leave');
+                // $message->from(ENV('MAIL_FROM'))->subject('Take Leave');
             }); 
-       return redirect('/leave');
+       return redirect()->route('leave');
     }
 
     public function show($id)
@@ -251,7 +251,7 @@ class LeaveTakeController extends Controller
     public function update_hod_approval(Request $request, $id)
     {
          // check userpermissio
-        $this->CheckPermission(1);
+        // $this->CheckPermission(1);
 
          $data = 'approved';
          $result = LeaveTake::where('id',$id)->update(['hod_approval' => $data]);
@@ -295,7 +295,7 @@ class LeaveTakeController extends Controller
         $departments = UserDepartment::select('department')->whereIn('id', $split)->get();
         $LeaveTake ['department'] = $departments;
         $LeaveTake ['username'] = $LeaveTake->user->username;
-        $LeaveTake ['Sex'] = $LeaveTake->user->Sex;
+        $LeaveTake ['gender'] = $LeaveTake->user->gender;
         $LeaveTake ['shift'] = $LeaveTake->leave_day->shift;
         $LeaveTake ['name'] = $LeaveTake->leave_type->name;
         $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;

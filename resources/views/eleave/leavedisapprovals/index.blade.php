@@ -5,7 +5,7 @@
     @include('sidebar.eleave')
 @endsection
 @section('css')
-<link href="{{asset('css/admin/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{asset('css/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <style>
   .no-border {
   border: 0;
@@ -144,9 +144,9 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm"> @lang('messages.sex'):</label>
+                <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">Gender:</label>
                 <div class="col-sm-8">
-                    <input type="text" name="sex" id="sex" class="form-control no-border"/>
+                    <input type="text" name="gender" id="gender" class="form-control no-border"/>
                 </div>
               </div>
               <div class="form-group row">
@@ -234,8 +234,8 @@
 @endsection
 
 @section('js')
-<script src="{{asset('js/admin/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('js/admin/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('js/datatable/jquery.dataTables.js')}}"></script>
+<script src="{{asset('js/datatable/dataTables.bootstrap4.min.js')}}"></script>
 <script>
     $(document).ready(function () {
       $('#dataTable').DataTable({
@@ -247,7 +247,7 @@
             })
             $('.yes_btn').click(function(){
                 $.ajax({
-                    url:"/leavedisapproval/delete/"+id,
+                    url:"leavedisapproval/delete/"+id,
                     method: "get",
                     success: function() {
                         console.log(id);
@@ -260,12 +260,12 @@
     $(document).on('click','.clickable-row',function () {
            var id = $(this).attr("id"); 
         $.ajax({
-            url:"/leaveapproval/show/"+id,
+            url:"leavedisapproval/show/"+id,
             method:"GET",
             success: function(leave_take){
                 $("#showModal #department").val(leave_take.department.department);
                 $("#showModal #username").val(leave_take.username);
-                $("#showModal #sex").val(leave_take.Sex);
+                $("#showModal #gender").val(leave_take.gender);
                 $("#showModal #date_app").val(leave_take.date_app);
                 $("#showModal #hand_over_job").val(leave_take.hand_over_job);
                 $("#showModal #name").val(leave_take.name);
@@ -295,7 +295,7 @@
               }
             });
           $.ajax({
-              url:"/leavedisapproval/updatedisapproval/"+id,
+              url:"leavedisapproval/updatedisapproval/"+id,
               method:"post",
               processData:false,
               contentType:false,
