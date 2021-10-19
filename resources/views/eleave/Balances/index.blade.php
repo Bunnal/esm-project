@@ -1,5 +1,9 @@
-@extends('layouts.main-master')
-@section('title', 'Leave Detail')
+@extends('layouts.master')
+@section('title', 'Eleave')
+@section('title_page', 'Eleave')
+@section('sidebar')
+    @include('sidebar.eleave')
+@endsection
 @section('css')
 <link href="{{asset('css/ione/styles.css')}}" rel="stylesheet">
 <link href="{{asset('css/ione/bootstrap-datetimepicker.css')}}" rel="stylesheet">
@@ -9,17 +13,7 @@
 }
 </style>
 @endsection
-@section('sidebar')
-    @include('sidebar.eleave')
-@endsection
 @section('content')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/user">@lang('messages.dashboard')</a></li>
-        <li class="breadcrumb-item"><a href="leave">@lang('messages.leave')</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@lang('messages.leave_detail')</li>
-    </ol>
-</nav>
 @if( Session::has('modal_message_error'))
     <div class="modal " id="popupmodal" tabindex="-1" role="dialog">
       <div class="modal-dialog  modal-dialog-centered" role="document">
@@ -37,9 +31,9 @@
       </div>
     </div>
 @endif
-<div class="card uper">
+<div class="card uper mt-3">
     <div class="card-header">@lang('messages.view_own_balance')</div>
-<div class="row p-4">
+    <div class="row p-4">
         <div class="col-lg-8">
             <form action="{{route('getownbalance')}}" method="post">
                 @csrf

@@ -1,9 +1,6 @@
 
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -14,6 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <link rel="stylesheet" href="{{asset("css/esmstyle.min.css")}}">
+    @yield('css')
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -24,18 +22,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="#" class="navbar-brand">
         <span class="brand-text font-weight-light">EApproval Management System</span>
       </a>
-
-      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <li class="nav-item dropdown">
           <a class="" data-toggle="dropdown" href="#">
             <div class="user-panel mr-3">
               <div class="image">
-                <img src="https://i1.sndcdn.com/avatars-6H5MKgzDgzDNhDUW-L2oatw-t500x500.jpg" class="img-circle" alt="User Image">
+                {{-- <img src="https://i1.sndcdn.com/avatars-6H5MKgzDgzDNhDUW-L2oatw-t500x500.jpg" class="img-circle" alt="User Image"> --}}
               </div>
             </div>
           </a>

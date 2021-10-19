@@ -51,7 +51,7 @@ class BalanceController extends Controller
             return redirect()->route('leave')->with('modal_message_error', trans('messages.you_are_not_yet_to_take_leave'));
             // return redirect()->back();
         }
-        return view('ione.eleave.balances.index',compact('LeaveTake','leave_muberics','unpaids','startdate'));
+        return view('eleave.balances.index',compact('LeaveTake','leave_muberics','unpaids','startdate'));
     }
     public function getOwnBalance(Request $request)
     {
@@ -85,7 +85,7 @@ class BalanceController extends Controller
         {
             return redirect()->route('ownbalance')->with('modal_message_error', 'You never to take leave!');
         }
-        return view('ione.eleave.balances.index',compact('LeaveTake','leave_muberics','unpaids','startdate'));
+        return view('eleave.balances.index',compact('LeaveTake','leave_muberics','unpaids','startdate'));
     }
     public function balanceByMonth()
     {
@@ -103,7 +103,7 @@ class BalanceController extends Controller
           $leave_takes[$key]['shift'] = LeaveDay::select('shift')->where('id',$leave_take->leave_day_id)->first()->shift;
             
         }
-        return view('ione.eleave.balances.balance_by_month',compact('leave_takes','startdate','enddate'));
+        return view('eleave.balances.balanceByMonth',compact('leave_takes','startdate','enddate'));
 
     }
 
@@ -125,7 +125,7 @@ class BalanceController extends Controller
           $leave_takes[$key]['shift'] = LeaveDay::select('shift')->where('id',$leave_take->leave_day_id)->first()->shift;
             
         }
-        return view('ione.eleave.balances.balance_by_month',compact('leave_takes','startdate','enddate'));
+        return view('eleave.balances.balanceByMonth',compact('leave_takes','startdate','enddate'));
     }
     public function show($id)
    {

@@ -16,12 +16,6 @@
     @include('sidebar.eleave')
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/eleave">@lang('messages.dashboard')</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@lang('messages.leave_approval')</li>
-    </ol>
-</nav>
 <!-- Show Error if delete own account -->
 <div class="text-center">
     @if (session('msg'))
@@ -30,7 +24,7 @@
         </div>
     @endif
 </div>
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 mt-4">
     <div class="card-header py-3">
       <h5>@lang('messages.disapproval')</h5>
     </div>

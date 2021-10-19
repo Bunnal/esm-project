@@ -5,7 +5,7 @@
     @include('sidebar.eleave')
 @endsection
 @section('css')
-<link href="{{asset('css/admin/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{asset('css/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <style>
   .no-border {
   border: 0;
@@ -16,12 +16,6 @@
     @include('sidebar.eleave')
 @endsection
 @section('content')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/eleave">@lang('messages.dashboard')</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@lang('messages.leave_approval')</li>
-    </ol>
-</nav>
 <!-- Show Error if delete own account -->
 <div class="text-center">
     @if (session('msg'))
@@ -30,7 +24,7 @@
         </div>
     @endif
 </div>
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 mt-3">
     <div class="card-header py-3">
       <h5>@lang('messages.approval')</h5>
     </div>

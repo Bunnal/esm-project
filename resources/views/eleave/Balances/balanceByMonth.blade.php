@@ -1,12 +1,8 @@
-@extends('layouts.main-master')
-@section('title', 'Report | Dashboard ')
-@section('sibar')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="{{url('admin/asp')}}">
-        <i class="fas fa-folder"></i>
-        <span>Eleave</span>
-    </a>
-</li>
+@extends('layouts.master')
+@section('title', 'Eleave')
+@section('title_page', 'Eleave')
+@section('sidebar')
+    @include('sidebar.eleave')
 @endsection
 @section('css')
 <link href="{{asset('css/admin/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
@@ -24,18 +20,8 @@
    }
   </style>
 @endsection
-@section('sidebar')
-    @include('sidebar.eleave')
-@endsection
 @section('content')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">@lang('messages.dashboard')</a></li>
-            <li class="breadcrumb-item"><a href="leave">@lang('messages.leave')</a></li>
-            <li class="breadcrumb-item active" aria-current="page">@lang('messages.list')</li>
-        </ol>
-    </nav>
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 mt-3">
     <div class="card-header py-3">
        @lang('messages.balance_by_month')
     </div>
