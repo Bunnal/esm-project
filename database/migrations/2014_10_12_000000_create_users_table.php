@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->integer('role_id');
             $table->integer('user_service_grade_id');
             $table->string('status', 7)->default('enable');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

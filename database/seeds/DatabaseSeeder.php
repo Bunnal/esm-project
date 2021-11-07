@@ -13,6 +13,7 @@ use App\Models\Eleave\LeaveType;
 use App\Models\Eleave\LeaveDay;
 use App\Models\Eleave\LeaveNumberic;
 use App\Models\Eleave\LeaveTake;
+use App\Models\User\UserServiceGrade;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,25 +24,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $positions = [
-            ['position' => 'Web Developer'],
-            ['position' => 'IT Technical'],
-        ];
-
-        foreach($positions as $position)
-            Position::create($position);
-        
-        $departments = [
-            ['department' => 'Accountant'],
-            ['department' => 'Destribution'],
-            ['department' => 'E-commerce'],
-            ['department' => 'Administrator'],
-            ['department' => 'Retail']
-
-        ];
-
-        foreach($departments as $department)
-            UserDepartment::create($department);
 
         $roles = [
            'Admin','user','guest'
@@ -155,7 +137,138 @@ class DatabaseSeeder extends Seeder
         foreach($LeaveNumberic as $item)
             LeaveNumberic::create([
                 'number_day' =>$item ,
-            ]);
+        ]);
+
+        // position
+        $positions = [
+            ['position'=>'Managing Director'],
+            ['position'=>'Sales Executive'],
+            ['position'=>'Business Manager'],
+            ['position'=>'Office Manager'],
+            ['position'=>'Driver'],
+            ['position'=>'Retail Supervisor'],
+            ['position'=>'Procurement Executive'],
+            ['position'=>'Senior Technician'],
+            ['position'=>'Senior Customer Service'],
+            ['position'=>'Graphic Designer'],
+            ['position'=>'Consultant'],
+            ['position'=>'Channel  Sales Manager'],
+            ['position'=>'Accounting Manager'],
+            ['position'=>'Retail Associate'],
+            ['position'=>'Stock Controller'],
+            ['position'=>'Senior Graphic Designer'],
+            ['position'=>'Cleaner'],
+            ['position'=>'Customer Service'],
+            ['position'=>'Associate HR Manager'],
+            ['position'=>'Apple Technician'],
+            ['position'=>'PSP Supervisor'],
+            ['position'=>'Trainer'],
+            ['position'=>'Associate Business Manager'],
+            ['position'=>'Warehouse Supervisor'],
+            ['position'=>'Group Technical Supervisor'],
+            ['position'=>'Product Specialist'],
+            ['position'=>'Sales Engineer'],
+            ['position'=>'Inventory Executive'],
+            ['position'=>'Sale Manager'],
+            ['position'=>'Sale Representative'],
+            ['position'=>'Delivery Man'],
+            ['position'=>'Marketing Executive'],
+            ['position'=>'Account Assistant'],
+            ['position'=>'Chanel Supervisor'],
+            ['position'=>'Phillip Technician'],
+            ['position'=>'Mechanician'],
+            ['position'=>'HR Executive'],
+            ['position'=>'Stock Controller'],
+            ['position'=>'Admin Assistant'],
+            ['position'=>'Admin Executive'],
+            ['position'=>'Marketing Coordinator'],
+            ['position'=>'IT Support'],
+            ['position'=>'Receptionist'],
+            ['position'=>'Accounts Executive'],
+            ['position'=>'Consultant'],
+            ['position'=>'Retail Associate (Part Time)'],
+            ['position'=>'Associate Warehouse Manager'],
+            ['position'=>'Corporate Sales'],
+            ['position'=>'Senior Customer Service'],
+            ['position'=>'Web developer (Part Time)'],
+            ['position'=>'Officer'],
+            ['position'=>'Associate Sales Manager'],
+            ['position'=>'Brand Executive'],
+            ['position'=>'Security'],
+            ['position'=>'IT Supervisor'],
+            ['position'=>'Marketing Support'],
+            ['position'=>'E-Commerce Coordinator'],
+            ['position'=>'Director'],
+            ['position'=>'Product Executive'],
+            ['position'=>'Finance Manager'],
+            ['position'=>'Inventory Executive'],
+            ['position'=>'Infrastructure Manager'],
+            ['position'=>'Security Manager'],
+            ['position'=>'Business Executive'],
+            ['position'=>'Applicant Development Leader'],
+            ['position'=>'Retail Associate/PIC'],
+            ['position'=>'Bill Collector'],
+            ['position'=>'Event Marketing'],
+            ['position'=>'Network Engineer'],
+            ['position'=>'Card Merchant Executive'],
+            ['position'=>'Web Developer'],
+            ['position'=>'Associate Products Manager']
+        ];
+        foreach($positions as $position)
+            Position::create($position);
+
+         // department 
+        $departments = [
+            ['department' => 'PSP'],
+            ['department' => 'Distribution'],
+            ['department' => 'Account'],
+            ['department' => 'Ecommerce'],
+            ['department' => 'Admin / HR / Logistics'],
+            ['department' => 'Cloud Infra'],
+            ['department' => 'Building & Leasing'],
+            ['department' => 'Retail'],
+            ['department' => 'Other'],
+            ['department' => 'Enterprise Sales'],
+        ];
+
+        foreach($departments as $department)
+            UserDepartment::create($department);
+        // user grade 
+
+        $userServiceGrade = [
+            ['service_grade' => 'AT1'],
+            ['service_grade' => 'AT2'],
+            ['service_grade' => 'AT3'],
+            ['service_grade' => 'EX1'],
+            ['service_grade' => 'EX2'],
+            ['service_grade' => 'EX3'],
+            ['service_grade' => 'MN1'],
+            ['service_grade' => 'MN2'],
+            ['service_grade' => 'MN3'],
+            ['service_grade' => 'GMI1'],
+            ['service_grade' => 'GMI2'],
+            ['service_grade' => 'GMI3'],
+        ];
+        foreach ($userServiceGrade as $key => $servicegrade) {
+            UserServiceGrade::create($servicegrade);
+        }
+
+        // user database seeding 
+        $users = [
+            ['employee_id' => '003', 'username' =>'003', 'email' =>'003@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010110', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>70, 'role_id' =>'2', 'user_service_grade_id' =>4, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '004', 'username' =>'004', 'email' =>'004@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010111', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>56, 'role_id' =>'2', 'user_service_grade_id' =>1, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '005', 'username' =>'005', 'email' =>'005@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010112', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>57, 'role_id' =>'2', 'user_service_grade_id' =>6, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '006', 'username' =>'006', 'email' =>'006@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010113', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>60, 'role_id' =>'4', 'user_service_grade_id' =>7, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '007', 'username' =>'007', 'email' =>'007@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010114', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>6, 'role_id' =>'1', 'user_service_grade_id' =>5, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '008', 'username' =>'008', 'email' =>'008@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010115', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>6, 'role_id' =>'2', 'user_service_grade_id' =>1, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '009', 'username' =>'009', 'email' =>'009@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010116', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>71, 'role_id' =>'2', 'user_service_grade_id' =>4, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '010', 'username' =>'010', 'email' =>'010@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010117', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>10, 'role_id' =>'2', 'user_service_grade_id' =>3, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '011', 'username' =>'011', 'email' =>'011@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010118', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>16, 'role_id' =>'2', 'user_service_grade_id' =>4, 'status' =>'enable', 'image' =>NULL],
+            ['employee_id' => '012', 'username' =>'012', 'email' =>'012@gmail.com', 'hod_email' =>'headofdepartment@gmail.com', 'phone_number' =>'087010119', 'hod_phone' =>'087010111', 'annual_leave' =>'18', 'date_joined' =>'2018-07-03', 'password' => Hash::make('123'), 'gender' =>'other', 'dob' =>'1997-04-04', 'user_department_id' => 3, 'position_id' =>71, 'role_id' =>'2', 'user_service_grade_id' =>1, 'status' =>'enable', 'image' =>NULL]
+        ];
+        foreach ($users as $key => $user) {
+            User::create($user);
+        }
     }
 
     
