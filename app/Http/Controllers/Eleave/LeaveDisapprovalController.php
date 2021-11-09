@@ -32,7 +32,7 @@ class LeaveDisapprovalController extends Controller
       $leave_takes = LeaveTake::where('sup_approval','pending')
                                 ->orwhere('hod_approval','pending')
                                 ->orwhere('hoj_approval','pending')
-                                ->where(Carbon::now(),'>=3','startdate')
+                                // ->where(Carbon::now(),'>=3','startdate')
                                 ->orderByDesc('startdate')->get();  
     //  dd( $leave_takes);
      foreach($leave_takes as $key => $leave_take)
