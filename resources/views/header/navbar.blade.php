@@ -6,14 +6,14 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{route('home')}}" class="nav-link">Home</a>
+      <a href="{{route('eleave')}}" class="nav-link">EApproval Management System</a>
     </li>
   </ul>
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <!-- Notifications Dropdown Menu -->
-    <li class="nav-item dropdown">
+    {{-- <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
         <i class="far fa-bell"></i>
         <span class="badge badge-warning navbar-badge">15</span>
@@ -38,26 +38,27 @@
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
       </div>
-    </li>
+    </li> --}}
     
     <li class="nav-item dropdown">
       <a class="" data-toggle="dropdown" href="#">
         <div class="user-panel mr-3">
-          <div class="image">
+          Logout
+          {{-- <div class="image">
             <img src="https://i1.sndcdn.com/avatars-6H5MKgzDgzDNhDUW-L2oatw-t500x500.jpg" class="img-circle" alt="User Image">
-          </div>
+          </div> --}}
         </div>
       </a>
       <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-        <span class="dropdown-header p-0 ">Setting</span>
+        {{-- <span class="dropdown-header p-0 ">Setting</span>
         
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item "><i class="fas fa-user mr-3"></i>Profile</a>
 
         <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item"><i class="fas fa-cog mr-3"></i>Settings</a>
+        <a href="#" class="dropdown-item"><i class="fas fa-cog mr-3"></i>Settings</a> --}}
 
-        <div class="dropdown-divider"></div>
+        {{-- <div class="dropdown-divider"></div> --}}
         <a href="{{route('logout')}}" class="dropdown-item"><i class="fas fa-power-off mr-3"></i>Logout</a>
 
       </div>

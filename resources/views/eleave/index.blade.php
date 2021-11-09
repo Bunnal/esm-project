@@ -4,6 +4,13 @@
 @section('sidebar')
     @include('sidebar.eleave')
 @endsection
+@section('css')
+    <style>
+      .round-lg {
+        border-radius: 0.5rem!important;
+      }
+    </style>
+@endsection
 @section('content')
 <?php
 $datetime = new DateTime('now', new DateTimeZone('Asia/Phnom_Penh'));
@@ -11,7 +18,7 @@ $datetime = new DateTime('now', new DateTimeZone('Asia/Phnom_Penh'));
 <div class="row mt-4">
     <!-- Departments  card -->
     <div class="col-xl-4 col-md-6 mb-4">
-      <div class="card border-left-success shadow h-100 py-2">
+      <div class="card border-left-success shadow h-100 py-2 round-lg">
         <a href="{{route('leave')}}" class="text-xs font-weight-bold text-success text-uppercase nav-link">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -32,7 +39,7 @@ $datetime = new DateTime('now', new DateTimeZone('Asia/Phnom_Penh'));
     <!-- End Departments card -->
     <!-- Postion card -->
     <div class="col-xl-4 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card border-left-primary shadow h-100 py-2 round-lg">
         <a  href="{{route('leave')}}" class="text-xs font-weight-bold text-primary text-uppercase  mb-1 nav-link">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -55,7 +62,7 @@ $datetime = new DateTime('now', new DateTimeZone('Asia/Phnom_Penh'));
     <!-- End Position card -->
      <!-- Postion card -->
      <div class="col-xl-4 col-md-6 mb-4">
-      <div class="card border-left-info shadow h-100 py-2">
+      <div class="card border-left-info shadow h-100 py-2 round-lg">
         <a  href="{{route('leave')}}" class="text-xs font-weight-bold text-info text-uppercase  mb-1 nav-link">
           <div class="card-body">
             <div class="row no-gutters align-items-center">

@@ -56,10 +56,10 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->hand_over_job}}</td>
                                 <td class="flex-container">
-                                  <a style="color: white;" class="btn btn-info btn-sm mr-1 clickable-row"  data-toggle="modal" data-target="#showModal" style="cursor:pointer" id="{{$item->id}}"><i class="fa fa-eye"></i></a>
+                                  <a style="color: white;" class="btn btn-info btn-sm mr-1 clickable-row mb-1"  data-toggle="modal" data-target="#showModal" style="cursor:pointer" id="{{$item->id}}"><i class="fa fa-eye"></i></a>
                                   @foreach ($results as $key)
                                   @if ($key->name == 'Edit') 
-                                  <a  class="btn btn-primary btn-sm mr-1" href="{{$key->link}}{{$item->id}}"><i class="fa fa-edit"></i></a>
+                                  <a  class="btn btn-primary btn-sm mr-1 mb-1" href="{{$key->link}}{{$item->id}}"><i class="far fa-edit"></i></a>
                                   @elseif ($key->name == 'Delete')
                                   <a style="color: white;" class="btn btn-danger btn-sm  delete_leave" href="#" data-id="{{$item->id}}" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></a>
        

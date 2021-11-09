@@ -23,11 +23,13 @@ class LoginController extends Controller
         ];
         if(Auth::attempt($getdata))
         {
-          if(Auth::user()->hasAnyRole(['admin']))
-          {
-            return redirect()->route('home')->with('login_msg','Welcome Back !');
+            return redirect()->route('eleave')->with('login_msg','Welcome Back !');
 
-          }
+        //   if(Auth::user()->hasAnyRole(['admin']))
+        //   {
+        //     return redirect()->route('home')->with('login_msg','Welcome Back !');
+
+        //   }
         //   if(Auth::user()->hasAnyRole(['supervisor']))
         //   {
         //     return redirect()->route('supervisor.index')->with('login_msg','Welcome Back !');

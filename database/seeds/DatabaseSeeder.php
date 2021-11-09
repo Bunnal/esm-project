@@ -234,7 +234,6 @@ class DatabaseSeeder extends Seeder
         foreach($departments as $department)
             UserDepartment::create($department);
         // user grade 
-
         $userServiceGrade = [
             ['service_grade' => 'AT1'],
             ['service_grade' => 'AT2'],
@@ -269,6 +268,11 @@ class DatabaseSeeder extends Seeder
         foreach ($users as $key => $user) {
             User::create($user);
         }
+
+        //user link menu 
+        $userLinkMenus = [
+            ["user_id" => '6', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',]
+        ];
     }
 
     
