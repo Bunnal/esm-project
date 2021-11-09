@@ -28,7 +28,7 @@ class LeaveDisapprovalController extends Controller
                 $results[$key]['name'] = Menu::select('name')->where('id',$result->menu_id)->first()->name;
                 $results[$key]['link'] = Menu::select('link')->where('id',$result->menu_id)->first()->link;
             }
-      $leave_takes = LeaveTake::whereRaw('(sup_approval = ? or hod_approval = ? or hoj_approval = ?) and Datediff(CURRENT_DATE(),startdate) >= ? ',array('pending','pending','pending','3'))->orderByDesc('startdate')->get();  
+      $leave_takes = LeaveTake::whereRaw('sup_approval = ? or hod_approval = ? or hoj_approval = ? and Datediff(CURRENT_DATE(),startdate) >= ? ',array('pending','pending','pending','3'))->orderByDesc('startdate')->get();  
     //  dd( $leave_takes);
      foreach($leave_takes as $key => $leave_take)
      {
