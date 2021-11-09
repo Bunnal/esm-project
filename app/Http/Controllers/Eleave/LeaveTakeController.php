@@ -27,8 +27,8 @@ class LeaveTakeController extends Controller
     {
         // check userpermissio
         // $this->CheckPermission(1);
-
-        $results = UserMenu::where('user_id',auth()->user()->id)->where('enable','1')->get()->unique('menu_id');
+        try {
+            $results = UserMenu::where('user_id',auth()->user()->id)->where('enable','1')->get()->unique('menu_id');
             foreach($results as $key => $result)
             {
                 $results[$key]['name'] = Menu::select('name')->where('id',$result->menu_id)->first()->name;
@@ -45,7 +45,11 @@ class LeaveTakeController extends Controller
               $leave_takes[$key]['shift'] = LeaveDay::select('shift')->where('id',$leave_take->leave_day_id)->first()->shift;
                 
            }
-        return view('eleave.leaves.index',compact('leave_takes','results'));
+
+           return view('eleave.leaves.index',compact('leave_takes','results'));
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     public function create()

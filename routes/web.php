@@ -14,11 +14,9 @@
 
 Auth::routes();
 
-Route::get('/index', function () {
-    return view("index");
-});
+Route::get('/', 'Eleave\EleaveController@index')->middleware('auth');
 Route::group(['prefix' => 'emspro','middleware' => ['auth']], function (){
-    Route::get('/','MainController@index')->name('home');
+    Route::get('/','Eleave\EleaveController@index')->name('home');
     //Eleave
     Route::get('/eleave','Eleave\EleaveController@index')->name('eleave');
     //LeaveTake
