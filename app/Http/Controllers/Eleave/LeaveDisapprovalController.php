@@ -29,11 +29,11 @@ class LeaveDisapprovalController extends Controller
                 $results[$key]['name'] = Menu::select('name')->where('id',$result->menu_id)->first()->name;
                 $results[$key]['link'] = Menu::select('link')->where('id',$result->menu_id)->first()->link;
             }
-      $leave_takes = LeaveTake::
-                                where('sup_approval','pending')
+      $leave_takes = LeaveTake::where('sup_approval','pending')
                                 ->orwhere('hod_approval','pending')
                                 ->orwhere('hoj_approval','pending')
-                                ->whereDate(Carbon::now(),'>=3','startdate')->orderByDesc('startdate')->get();  
+                                ->where(Carbon::now(),'>=3','startdate')
+                                ->orderByDesc('startdate')->get();  
     //  dd( $leave_takes);
      foreach($leave_takes as $key => $leave_take)
      {
