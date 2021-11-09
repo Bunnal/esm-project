@@ -120,6 +120,8 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Report','link' =>'#','module_id' => 1],
             ['name' => 'SupApproval','link' =>'#','module_id' => 1],
             ['name' => 'HodApproval','link' =>'#','module_id' => 1],
+            ['name' => 'Disapproval','link' =>'#','module_id' => 1],
+            ['name' => 'Approval','link' =>'#','module_id' => 1],
             
         ];
         foreach( $menus as $item)
@@ -271,7 +273,31 @@ class DatabaseSeeder extends Seeder
 
         //user link menu 
         $userLinkMenus = [
-            ["user_id" => '6', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',]
+            ["user_id" => '3', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '3', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '4', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '4', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '5', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '5', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '7', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '7', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '8', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '8', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '9', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '9', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '10', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '10', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '11', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '11', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '12', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '12', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '6', "menu_id" => '1',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '6', "menu_id" => '2',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '6', "menu_id" => '3',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '6', "menu_id" => '4',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '6', "menu_id" => '5',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '6', "menu_id" => '6',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
+            ["user_id" => '6', "menu_id" => '7',"enable" => '1',"view" => '1',"create" => '1',"edit" => '1',"delete" => '1',],
         ];
     }
 
