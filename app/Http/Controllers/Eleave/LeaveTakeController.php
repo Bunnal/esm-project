@@ -38,7 +38,7 @@ class LeaveTakeController extends Controller
             $leave_takes = LeaveTake::where('sup_approval','pending')
                                       ->orwhere('hod_approval','pending')
                                       ->orwhere('hoj_approval','pending')
-                                      ->whereRaw('DATE_PART("day", AGE(Carbon::now(), startdate)) <=2 ')
+                                      ->whereRaw('DATE_PART("day", AGE(Carbon::now(), startdate))')
                                     //   ->whereDate(Carbon::now(),'<=2','startdate')
                                       ->orderByDesc('id')->get();  
             foreach($leave_takes as $key => $leave_take)
