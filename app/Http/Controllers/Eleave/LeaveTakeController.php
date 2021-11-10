@@ -137,7 +137,7 @@ class LeaveTakeController extends Controller
             $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;
             $LeaveTake ['hand_over_job'] = $LeaveTake->hand_over_job;
             Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
-                if (auth()->user()->email != null){
+                // if (auth()->user()->email != null){
                     $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
                     // if (count($handoverjobs)) {
                     //     foreach( $handoverjobs as $handoverjob){
@@ -149,8 +149,8 @@ class LeaveTakeController extends Controller
                     //         $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
                     //     }
                     // }
-                }
-                $message->cc(auth()->user()->hod_email)->subject('Take Leave');
+                // }
+                // $message->cc(auth()->user()->hod_email)->subject('Take Leave');
                 // $message->to(ENV('MAIL_TO'))->subject('Take Leave');
                 // $message->from(ENV('MAIL_FROM'))->subject('Take Leave');
             }); 
