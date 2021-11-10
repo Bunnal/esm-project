@@ -35,12 +35,7 @@ class LeaveTakeController extends Controller
                 $results[$key]['name'] = Menu::select('name')->where('id',$result->menu_id)->first()->name;
                 $results[$key]['link'] = Menu::select('link')->where('id',$result->menu_id)->first()->link;
             }
-            $leave_takes = LeaveTake::where('sup_approval','pending')
-                                      ->orwhere('hod_approval','pending')
-                                      ->orwhere('hoj_approval','pending')
-                                      ->whereRaw("DATE_PART('day', '2011-12-31 01:00:00'::timestamp - '2011-12-29 23:00:00'::timestamp)")
-                                    //   ->whereDate(Carbon::now(),'<=2','startdate')
-                                      ->orderByDesc('id')->get();  
+            $leave_takes = LeaveTake::whereRaw('(sup_approval = ? or hod_approval = ? or hoj_approval = ?) and Datediff(CURRENT_DATE(),startdate) <= ? ',array('pending','pending','pending','2'))->orderByDesc('id')->get();   
             foreach($leave_takes as $key => $leave_take)
             {
               $leave_takes[$key]['username'] = User::select('username')->where('id',$leave_take->user_id)->first()->username;
