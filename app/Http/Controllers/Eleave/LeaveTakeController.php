@@ -136,17 +136,18 @@ class LeaveTakeController extends Controller
             $LeaveTake ['name'] = $LeaveTake->leave_type->name;
             $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;
             $LeaveTake ['hand_over_job'] = $LeaveTake->hand_over_job;
+            dd(auth()->user()->email);
             Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
-                if (auth()->user()->email != null){
-                    $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
-                            foreach( $handoverjobs as $handoverjob){
-                                $message->to($handoverjob->email)->subject(auth()->user()->username. 'Take Leave ');
-                            }
-                            foreach($supervisors as $supervisor){
-                                $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
-                            }
-                }
-                $message->cc(auth()->user()->hod_email)->subject('Take Leave');
+                // if (auth()->user()->email != null){
+                //     $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
+                //             foreach( $handoverjobs as $handoverjob){
+                //                 $message->to($handoverjob->email)->subject(auth()->user()->username. 'Take Leave ');
+                //             }
+                //             foreach($supervisors as $supervisor){
+                //                 $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
+                //             }
+                // }
+                // $message->cc(auth()->user()->hod_email)->subject('Take Leave');
                 // $message->to(ENV('MAIL_TO'))->subject('Take Leave');
                 // $message->from(ENV('MAIL_FROM'))->subject('Take Leave');
             }); 
