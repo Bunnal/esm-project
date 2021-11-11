@@ -13,6 +13,19 @@
   {{-- <link rel="stylesheet" href="{{asset("fonts/all.min.css")}}"> --}}
   <!-- Theme style -->
   @yield('css')
+  <style>
+      .img_profile{
+        box-sizing: border-box;
+        height: 100%;
+        left: 50%;
+        max-height: 100%;
+        position: absolute;
+        transform: translateX(-50%);
+        transition: all 0.15s ease-out;
+        width: auto;
+      }
+
+  </style>
   <link rel="stylesheet" href="{{asset("css/esmstyle.css")}}">
   <style>
 

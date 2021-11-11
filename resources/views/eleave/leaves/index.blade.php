@@ -149,9 +149,9 @@
                               <a style="color: white;" class="btn btn-info btn-sm mr-1 clickable-row"  data-toggle="modal" data-target="#showleave" style="cursor:pointer" id="{{$item->id}}"><i class="fa fa-eye"></i></a>
                               @foreach ($results as $key)
                               @if ($key->name == 'Edit') 
-                              <a  class="btn btn-primary btn-sm mr-1" href="{{$key->link}}{{$item->id}}"><i class="far fa-edit"></i></a>
+                              <a  class="btn btn-primary btn-sm mr-1" href="{{route('editleave',$item->id)}}"><i class="far fa-edit"></i></a>
                               @elseif ($key->name == 'Delete')
-                              <a style="color: white;" class="btn btn-danger btn-sm  delete_leave" href="#" data-id="{{$item->id}}" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></a>
+                              <a style="color: white;cusor:pointer" class="btn btn-danger btn-sm  delete_leave" data-id="{{$item->id}}" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></a>
    
                               @endif
                               @endforeach
@@ -178,8 +178,7 @@
             <div class="modal-body">@lang('messages.select_yes_below_if_you_want_to_delete_this_row')</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">@lang('messages.cancel')</button>
-                
-                <a class="btn btn-primary yes_btn" href="#">@lang('messages.yes')</a>
+                <button class="btn btn-primary yes_btn">@lang('messages.yes')</button>
             </div>
         </div>
     </div>
@@ -291,61 +290,61 @@
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.employee'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="username" id="username" class="form-control no-border"/>
+                    <p name="username" id="username" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">Gender:</label>
                 <div class="col-sm-8">
-                    <input type="text" name="gender" id="gender" class="form-control no-border"/>
+                    <p name="gender" id="gender" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.date_application'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="date_app" id="date_app" class="form-control no-border" />
+                    <p name="date_app" id="date_app" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.hand_over_job'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="hand_over_job" id="hand_over_job" class="form-control no-border" />
+                    <p name="hand_over_job" id="hand_over_job" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.leave_type'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="name" id="name" class="form-control no-border"  />
+                    <p name="name" id="name" class="form-control no-border" ></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.start_leave'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="startdate" id="startdate" class="form-control no-border"  />
+                    <p name="startdate" id="startdate" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.end_leave'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="enddate" id="enddate" class="form-control no-border"  />
+                    <p name="enddate" id="enddate" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.number_of_day'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="number_day" id="number_day" class="form-control no-border"/>
+                    <p name="number_day" id="number_day" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.fullday_or_halfday'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="shift"  id="shift" class="form-control no-border" />
+                    <p name="shift"  id="shift" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.reasons'):</label>
                 <div class="col-sm-8">
-                    <textarea name="reasons" id="reasons" cols="30" rows="10" class="form-control no-border"></textarea>
+                    <textarea name="reasons" id="reasons" cols="30" rows="10" class="form-control no-border" readonly></textarea>
                 </div>
               </div>
         </div>
@@ -370,7 +369,6 @@
                     url:"leave/delete/"+id,
                     method: "get",
                     success: function() {
-                        console.log(id);
                         $('.delete'+id).remove();
                         $('#deleteModal').modal('hide');
                     },
@@ -394,16 +392,16 @@
                 }
                 console.log(LeaveTake);
                 $("#showleave #department").text(text);
-                $("#showleave #username").val(LeaveTake.username);
-                $("#showleave #gender").val(LeaveTake.gender);
-                $("#showleave #date_app").val(LeaveTake.date_app);
-                $("#showleave #hand_over_job").val(LeaveTake.hand_over_job);
-                $("#showleave #name").val(LeaveTake.name);
-                $("#showleave #startdate").val(LeaveTake.startdate);
-                $("#showleave #enddate").val(LeaveTake.enddate);
-                $("#showleave #shift").val(LeaveTake.shift);
-                $("#showleave #number_day").val(LeaveTake.number_day);
-                $("#showleave #reasons").val(LeaveTake.reasons);
+                $("#showleave #username").text(LeaveTake.username);
+                $("#showleave #gender").text(LeaveTake.gender);
+                $("#showleave #date_app").text(LeaveTake.date_app);
+                $("#showleave #hand_over_job").text(LeaveTake.hand_over_job);
+                $("#showleave #name").text(LeaveTake.name);
+                $("#showleave #startdate").text(LeaveTake.startdate);
+                $("#showleave #enddate").text(LeaveTake.enddate);
+                $("#showleave #shift").text(LeaveTake.shift);
+                $("#showleave #number_day").text(LeaveTake.number_day);
+                $("#showleave #reasons").text(LeaveTake.reasons);
                 
             },
             error:function(err){

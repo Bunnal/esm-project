@@ -19,7 +19,7 @@ $datetime = new DateTime('now', new DateTimeZone('Asia/Phnom_Penh'));
     <!-- Departments  card -->
     <div class="col-xl-4 col-md-6 mb-4">
       <div class="card border-left-success shadow h-100 py-2 round-lg">
-        <a href="{{route('leave')}}" class="text-xs font-weight-bold text-success text-uppercase nav-link">
+        <a href="{{route('viewleaveby','day')}}" class="text-xs font-weight-bold text-success text-uppercase nav-link">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
@@ -40,7 +40,7 @@ $datetime = new DateTime('now', new DateTimeZone('Asia/Phnom_Penh'));
     <!-- Postion card -->
     <div class="col-xl-4 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2 round-lg">
-        <a  href="{{route('leave')}}" class="text-xs font-weight-bold text-primary text-uppercase  mb-1 nav-link">
+        <a  href="{{route('viewleaveby','week')}}" class="text-xs font-weight-bold text-primary text-uppercase  mb-1 nav-link">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
@@ -63,7 +63,7 @@ $datetime = new DateTime('now', new DateTimeZone('Asia/Phnom_Penh'));
      <!-- Postion card -->
      <div class="col-xl-4 col-md-6 mb-4">
       <div class="card border-left-info shadow h-100 py-2 round-lg">
-        <a  href="{{route('leave')}}" class="text-xs font-weight-bold text-info text-uppercase  mb-1 nav-link">
+        <a  href="{{route('viewleaveby','month')}}" class="text-xs font-weight-bold text-info text-uppercase  mb-1 nav-link">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">

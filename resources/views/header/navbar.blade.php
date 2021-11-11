@@ -41,14 +41,16 @@
     </li> --}}
     
     <li class="nav-item dropdown">
-      <a class="" data-toggle="dropdown" href="#">
-        <div class="user-panel mr-3">
-          Logout
-          {{-- <div class="image">
-            <img src="https://i1.sndcdn.com/avatars-6H5MKgzDgzDNhDUW-L2oatw-t500x500.jpg" class="img-circle" alt="User Image">
-          </div> --}}
+      <button type="button" class="btn header-item waves-effect p-0" data-toggle="dropdown" >
+        <div class="user-panel d-flex">
+          <div class="image">
+            <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block username">{{auth()->user()->username}}</a>
+          </div>
         </div>
-      </a>
+      </button>
       <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
         {{-- <span class="dropdown-header p-0 ">Setting</span>
         

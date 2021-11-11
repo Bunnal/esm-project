@@ -19,6 +19,7 @@ Route::group(['prefix' => 'emspro','middleware' => ['auth']], function (){
     Route::get('/','Eleave\EleaveController@index')->name('home');
     //Eleave
     Route::get('/eleave','Eleave\EleaveController@index')->name('eleave');
+    Route::get('/eleave/{viewleavetype}', 'Eleave\EleaveController@viewLeaveBy')->name("viewleaveby");
     //LeaveTake
     Route::get('/leave','Eleave\LeaveTakeController@index')->name('leave');
     Route::get('/leave/create','Eleave\LeaveTakeController@create')->name('createleave');
