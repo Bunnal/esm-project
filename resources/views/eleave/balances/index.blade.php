@@ -5,8 +5,9 @@
     @include('sidebar.eleave')
 @endsection
 @section('css')
-<link href="{{asset('css/ione/styles.css')}}" rel="stylesheet">
-<link href="{{asset('css/ione/bootstrap-datetimepicker.css')}}" rel="stylesheet">
+<link href="{{asset('css/styles.css')}}" rel="stylesheet">
+<link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
+<link href="{{asset('css/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <style>
     .no-border {
     border: 0;
@@ -114,8 +115,8 @@
 
 @endsection
 @section('js')
-<script src="{{asset('js/ione/moment.min.js')}}"></script>
-<script src="{{asset('js/ione/bootstrap-datetimepicker.js')}}"></script>
+<script src="{{asset('js/moment.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
 <script>
     var today = new Date();
     // var month = today.getMonth()+1;

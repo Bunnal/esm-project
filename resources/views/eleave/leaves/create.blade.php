@@ -104,14 +104,18 @@
                         <label>@lang('messages.supervisor')</label>
                         @if(auth()->user()->role_id == 4)
                         <select name="sup"  class="form-control" disabled >
-                            <option value="" selected hidden >Default</option>
+                            <option value="" selected hidden >none</option>
                         </select>
-                        @else
+                        @elseif(count($supervisors))
                         <select name="sup"  class="form-control">
                             <option value="" selected hidden >@lang('messages.choose_one')</option>
                             @foreach($supervisors as  $sup)
                                 <option @if(old('username') == $sup->username) selected @endif value="{{$sup->username}}">{{$sup->username}}</option>
                             @endforeach
+                        </select>
+                        @else 
+                        <select name="sup"  class="form-control" disabled >
+                            <option value="" selected hidden >none</option>
                         </select>
                         @endif
                         @if ($errors->has('sup'))
