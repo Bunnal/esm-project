@@ -81,7 +81,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($leave_takes as $item)
+                  {{$leave_takes->count()}}
+                    @foreach ($leave_takes as $key => $item)
+                    {{$key}}
                         <tr  class="delete{{$item->id}}" id="remove{{$item->id}}"  data-id="{{$item->id}}"  @if($item->hoj_approval == 'approved' &&  $item->hod_approval == 'approved' &&  $item->sup_approval == 'approved') style="display: none;"  @endif>
                             <td>{{$item->username}}</td>
                             <td>{{$item->date_app}}</td>

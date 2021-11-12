@@ -79,14 +79,12 @@ class EleaveController extends Controller
                 return $this->getDataToDisplay($leave_takes);
                 break;
             case 'week':
-                $leave_takes=LeaveTake::whereDate('startdate','>',  $formatted_date)->orderByDesc('id')->get();
-                dd($leave_takes->count());
-                // return $this->getDataToDisplay($leave_takes);
+                $leave_takes = LeaveTake::whereDate('startdate','>',  $formatted_date)->orderByDesc('id')->get(); 
+                return $this->getDataToDisplay($leave_takes);
                 break;
             case 'month':
                 $leave_takes = LeaveTake::whereMonth('startdate',date('m'))->orderByDesc('id')->get(); 
-                dd($leave_takes->count());
-                // return $this->getDataToDisplay($leave_takes);
+                return $this->getDataToDisplay($leave_takes);
                 break;
             default:
                 return abort(404);
