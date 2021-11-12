@@ -8,8 +8,12 @@
 <link href="{{asset('css/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <style>
   .no-border {
-  border: 0;
-}
+    border: 0;
+  }
+  .flex-container{
+    display: flex;
+    flex-wrap: nowrap;
+  }
 </style>
 @endsection
 @section('sidebar')
@@ -61,8 +65,7 @@
                                   @if ($key->name == 'Edit') 
                                   <a  class="btn btn-primary btn-sm mr-1 mb-1" href="{{route('editleave',$item->id)}}"><i class="far fa-edit"></i></a>
                                   @elseif ($key->name == 'Delete')
-                                  <a style="color: white;cusor:pointer;" class="btn btn-danger btn-sm  delete_leave" data-id="{{$item->id}}" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></a>
-       
+                                    <a style="color: white;cusor:pointer;" class="btn btn-danger btn-sm  delete_leave" data-id="{{$item->id}}" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></a>
                                   @endif
                                   @endforeach
                                </td>

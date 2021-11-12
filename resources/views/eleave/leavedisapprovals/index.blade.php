@@ -7,8 +7,12 @@
 @section('css')
 <link href="{{asset('css/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <style>
-  .no-border {
+.no-border {
   border: 0;
+}
+.flex-container{
+  display: flex;
+  flex-wrap: nowrap;
 }
 </style>
 @endsection
