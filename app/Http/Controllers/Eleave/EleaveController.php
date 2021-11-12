@@ -109,6 +109,6 @@ class EleaveController extends Controller
           $leave_takes[$key]['shift'] = LeaveDay::select('shift')->where('id',$leave_take->leave_day_id)->first()->shift;
             
        }
-       return view('eleave.leaves.index',compact('leave_takes','results'));
+       return view('eleave.leaves.disleavebytype',compact('leave_takes','results'));
     }
 }
