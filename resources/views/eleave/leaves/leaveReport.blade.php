@@ -58,7 +58,7 @@
                 </strong>
                 <p>Department : {{$LeaveTake->department}}</p>
                 <p>Employee   : {{$LeaveTake->username}}</p>
-                <p>Sex        : {{$LeaveTake->Sex}}</p>
+                <p>Sex        : {{$LeaveTake->gender}}</p>
                 <p>Hand Over Job: {{$LeaveTake->hand_over_job}}</p>
                 <p>Type Leave: {{$LeaveTake->name}}</p>
                 <p>Date App   : {{$LeaveTake->date_app}}</p>
@@ -68,7 +68,7 @@
                 <p>Reasons : {{$LeaveTake->reasons}}</p>
                 <br>
                  <br><br>
-                 <p align="center" style="text-align: center;">Eleave Link : <a href="https://app.ioneservice.com">https://app.ioneservice.com</a></p>
+                 
                 
               </td>
             </tr>

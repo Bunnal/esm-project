@@ -150,9 +150,8 @@ class LeaveTakeController extends Controller
                         }
                     }
                 }
-                $message->cc(auth()->user()->hod_email)->subject('Take Leave');
                 // $message->to(ENV('MAIL_TO'))->subject('Take Leave');
-                // $message->from(ENV('MAIL_FROM'))->subject('Take Leave');
+                $message->from('rikimony432@gmail.com')->subject('Take Leave');
             }); 
        return redirect()->route('leave');
     }
