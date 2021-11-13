@@ -66,7 +66,7 @@ class LeaveTakeController extends Controller
         foreach ($departments as $key => $department)
         {
            
-            $handoverjobs->push(User::whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->where('')->get());
+            $handoverjobs->push(User::whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
             $supervisors->push(User::where('role_id',3)->whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
             $hods->push(User::where('role_id',4)->whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
         }
