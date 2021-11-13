@@ -366,7 +366,7 @@
             })
             $('.yes_btn').click(function(){
                 $.ajax({
-                    url:"leave/delete/"+id,
+                    url:"{{route('deleteleave')}}/"+id,
                     method: "get",
                     success: function() {
                         $('.delete'+id).remove();
@@ -380,7 +380,7 @@
            var id = $(this).attr("id"); 
            var text = "";
         $.ajax({
-            url:"leave/show/"+id,
+            url:"{{route('showleave')}}/"+id,
             method:"GET",
             success: function(LeaveTake ){
               if(LeaveTake.department.length > 1) {
@@ -426,7 +426,7 @@
             var formdata = new FormData();
               formdata.append("hoj_approval",$("#hojModal #hoj_approval").val());
             $.ajax({
-              url:"leave/update_hoj_approval/"+id,
+              url:"{{route('update_hoj_approval')}}/"+id,
               method:"post",
               data:formdata,
               processData:false,
@@ -456,7 +456,7 @@
           var formdata = new FormData();
             formdata.append("sup_approval",$("#supModal #sup_approval").val());
           $.ajax({
-              url:"leave/update_sup_approval/"+id,
+              url:"{{route('update_sup_approval')}}/"+id,
               method:"post",
               data:formdata,
               processData:false,
@@ -486,7 +486,7 @@
           var formdata = new FormData();
           formdata.append("hod_approval",$("#hodModal #hod_approval").val());
           $.ajax({
-              url:"leave/update_hod_approval/"+id,
+              url:"{{route('update_hod_approval')}}/"+id,
               method:"post",
               data:formdata,
               processData:false,

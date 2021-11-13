@@ -24,14 +24,14 @@ Route::group(['prefix' => 'emspro','middleware' => ['auth']], function (){
     Route::get('/leave','Eleave\LeaveTakeController@index')->name('leave');
     Route::get('/leave/create','Eleave\LeaveTakeController@create')->name('createleave');
     Route::post('/leave/store','Eleave\LeaveTakeController@store')->name('storeleave');
-    Route::get('/leave/show/{id}','Eleave\LeaveTakeController@show')->name('showleave');
+    Route::get('/leave/show/{id?}','Eleave\LeaveTakeController@show')->name('showleave');
     Route::get('/leave/edit/{id}','Eleave\LeaveTakeController@edit')->name('editleave');
     Route::post('/leave/update/{id}','Eleave\LeaveTakeController@update')->name('updateleave');
-    Route::get('/leave/delete/{id}','Eleave\LeaveTakeController@destroy')->name('deleteleave');
+    Route::get('/leave/delete/{id?}','Eleave\LeaveTakeController@destroy')->name('deleteleave');
     Route::get('autocomplete', 'Eleave\LeaveTakeController@autocomplete')->name('autocomplete');
-    Route::post('/leave/update_sup_approval/{id}','Eleave\LeaveTakeController@update_sup_approval')->name('update_sup_approval');
-    Route::post('/leave/update_hod_approval/{id}','Eleave\LeaveTakeController@update_hod_approval')->name('update_hod_approval');
-    Route::post('/leave/update_hoj_approval/{id}','Eleave\LeaveTakeController@update_hoj_approval')->name('update_hoj_approval');
+    Route::post('/leave/update_sup_approval/{id?}','Eleave\LeaveTakeController@update_sup_approval')->name('update_sup_approval');
+    Route::post('/leave/update_hod_approval/{id?}','Eleave\LeaveTakeController@update_hod_approval')->name('update_hod_approval');
+    Route::post('/leave/update_hoj_approval/{id?}','Eleave\LeaveTakeController@update_hoj_approval')->name('update_hoj_approval');
 
      //LeaveApproval
      Route::get('/leaveapproval','Eleave\LeaveApprovalController@index')->name('leaveapproval');
