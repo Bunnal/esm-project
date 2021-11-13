@@ -66,7 +66,7 @@ class LeaveTakeController extends Controller
         foreach ($departments as $key => $department)
         {
            
-            $handoverjobs->push(User::whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
+            $handoverjobs->push(User::whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->where('')->get());
             $supervisors->push(User::where('role_id',3)->whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
             $hods->push(User::where('role_id',4)->whereRaw('FIND_IN_SET('.(int)$department->id.', user_department_id) > 0')->where('id','!=',auth()->id())->get());
         }
@@ -136,24 +136,24 @@ class LeaveTakeController extends Controller
             $LeaveTake ['name'] = $LeaveTake->leave_type->name;
             $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;
             $LeaveTake ['hand_over_job'] = $LeaveTake->hand_over_job;
-            // Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
-                // if (auth()->user()->email != null){
-                    // $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
-                    // if (count($handoverjobs)) {
-                    //     foreach( $handoverjobs as $handoverjob){
-                    //         $message->to($handoverjob->email)->subject(auth()->user()->username. 'Take Leave ');
-                    //     }
-                    // }
-                    // if(count($supervisors)) {
-                    //     foreach($supervisors as $supervisor){
-                    //         $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
-                    //     }
-                    // }
-                // }
-                // $message->cc(auth()->user()->hod_email)->subject('Take Leave');
+            Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
+                if (auth()->user()->email != null){
+                    $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
+                    if (count($handoverjobs)) {
+                        foreach( $handoverjobs as $handoverjob){
+                            $message->to($handoverjob->email)->subject(auth()->user()->username. 'Take Leave ');
+                        }
+                    }
+                    if(count($supervisors)) {
+                        foreach($supervisors as $supervisor){
+                            $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
+                        }
+                    }
+                }
+                $message->cc(auth()->user()->hod_email)->subject('Take Leave');
                 // $message->to(ENV('MAIL_TO'))->subject('Take Leave');
                 // $message->from(ENV('MAIL_FROM'))->subject('Take Leave');
-            // }); 
+            }); 
        return redirect()->route('leave');
     }
 

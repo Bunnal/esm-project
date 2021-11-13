@@ -9,7 +9,7 @@
         <li class="nav-item">
             <a href="{{route("leave")}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Add New Leave</p>
+              <p>Leaves</p>
             </a>
         </li>
 
