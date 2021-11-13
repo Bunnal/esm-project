@@ -32,7 +32,7 @@
             border-collapse: separate;
             max-width: 700px;
             padding: 20px 10px;
-            width:45%;
+            width:80%;
            "
           
         >
@@ -107,7 +107,6 @@
                     text-align: center;
                   "
                 >
-                  © 2020 iOne
                 </p>
               </td>
             </tr>
