@@ -136,22 +136,22 @@ class LeaveTakeController extends Controller
             $LeaveTake ['name'] = $LeaveTake->leave_type->name;
             $LeaveTake ['number_day'] = $LeaveTake->leave_numberic->number_day;
             $LeaveTake ['hand_over_job'] = $LeaveTake->hand_over_job;
-            Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
-                if (auth()->user()->email != null){
-                    $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
-                    if (count($handoverjobs)) {
-                        foreach( $handoverjobs as $handoverjob){
-                            $message->to($handoverjob->email)->subject(auth()->user()->username. 'Take Leave ');
-                        }
-                    }
-                    if(count($supervisors)) {
-                        foreach($supervisors as $supervisor){
-                            $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
-                        }
-                    }
-                }
-                $message->from('rikimony432@gmail.com',auth()->user()->username. ' Take Leave ');
-            }); 
+            // Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
+            //     if (auth()->user()->email != null){
+            //         $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
+            //         if (count($handoverjobs)) {
+            //             foreach( $handoverjobs as $handoverjob){
+            //                 $message->to($handoverjob->email)->subject(auth()->user()->username. 'Take Leave ');
+            //             }
+            //         }
+            //         if(count($supervisors)) {
+            //             foreach($supervisors as $supervisor){
+            //                 $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
+            //             }
+            //         }
+            //     }
+            //     $message->from('rikimony432@gmail.com',auth()->user()->username. ' Take Leave ');
+            // }); 
        return redirect()->route('leave');
     }
 
