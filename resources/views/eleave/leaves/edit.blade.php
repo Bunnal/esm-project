@@ -2,9 +2,9 @@
 @section('title', 'Edit Leave')
 
 @section('css')
-<link href="{{asset('css/ione/styles.css')}}" rel="stylesheet">
-<link href="{{asset('css/ione/bootstrap-datetimepicker.css')}}" rel="stylesheet">
-<link href="{{asset('css/admin/chosen.css')}}" rel="stylesheet"/>
+<link href="{{asset('css/styles.css')}}" rel="stylesheet">
+<link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
+<link href="{{asset('css/chosen.css')}}" rel="stylesheet"/>
 <style>
     .chosen-container-multi .chosen-choices{
         background-color: #d1d3e2 !important;
@@ -175,8 +175,8 @@
 </div>
 @endsection
 @section('js')
-<script src="{{asset('js/ione/moment.min.js')}}"></script>
-<script src="{{asset('js/ione/bootstrap-datetimepicker.js')}}"></script>
+<script src="{{asset('js/moment.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
         <script>
             var today = new Date();
             var month = today.getMonth()+1;

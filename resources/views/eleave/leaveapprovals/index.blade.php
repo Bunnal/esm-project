@@ -111,67 +111,67 @@
             <div class="form-group row">
                 <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.department'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="department" id="department" class="form-control no-border" />
+                    <p name="department" id="department" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.employee'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="username" id="username" class="form-control no-border"/>
+                    <p name="username" id="username" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">Gender:</label>
                 <div class="col-sm-8">
-                    <input type="text" name="gender" id="gender" class="form-control no-border"/>
+                    <p name="gender" id="gender" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.date_application'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="date_app" id="date_app" class="form-control no-border" />
+                    <p name="date_app" id="date_app" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.hand_over_job'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="hand_over_job" id="hand_over_job" class="form-control no-border" />
+                    <p name="hand_over_job" id="hand_over_job" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.leave_type'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="name" id="name" class="form-control no-border"/>
+                    <p name="name" id="name" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.start_leave'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="startdate" id="startdate" class="form-control no-border"/>
+                    <p name="startdate" id="startdate" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.end_leave'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="enddate" id="enddate" class="form-control no-border"/>
+                    <p name="enddate" id="enddate" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.number_of_day'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="number_day" id="number_day" class="form-control no-border"/>
+                    <p name="number_day" id="number_day" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.full_day_or_half_day'):</label>
                 <div class="col-sm-8">
-                    <input type="text" name="shift"  id="shift" class="form-control no-border"/>
+                    <p name="shift"  id="shift" class="form-control no-border"></p>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">@lang('messages.reasons'):</label>
                 <div class="col-sm-8">
-                    <textarea name="reasons" id="reasons" cols="30" rows="10" class="form-control no-border"></textarea>
+                    <textarea name="reasons" id="reasons" cols="30" rows="10" class="form-control no-border" readonly></textarea>
                 </div>
               </div>
         </div>
@@ -194,7 +194,7 @@
             })
             $('.yes_btn').click(function(){
                 $.ajax({
-                    url:"leaveapproval/delete/"+id,
+                    url:"{{route('deleteleaveapproval')}}/"+id,
                     method: "GET",
                     success: function() {
                         $('.delete'+id).remove();
@@ -206,20 +206,20 @@
     $(document).on('click','.clickable-row',function () {
            var id = $(this).attr("id"); 
         $.ajax({
-            url:"leaveapproval/show/"+id,
+            url:"{{route('showapproved')}}/"+id,
             method:"GET",
             success: function(leave_take){
-                $("#showModal #department").val(leave_take.department.department);
-                $("#showModal #username").val(leave_take.username);
-                $("#showModal #gender").val(leave_take.gender);
-                $("#showModal #date_app").val(leave_take.date_app);
-                $("#showModal #hand_over_job").val(leave_take.hand_over_job);
-                $("#showModal #name").val(leave_take.name);
-                $("#showModal #startdate").val(leave_take.startdate);
-                $("#showModal #enddate").val(leave_take.enddate);
-                $("#showModal #shift").val(leave_take.shift);
-                $("#showModal #number_day").val(leave_take.number_day);
-                $("#showModal #reasons").val(leave_take.reasons);
+                $("#showModal #department").text(leave_take.department.department);
+                $("#showModal #username").text(leave_take.username);
+                $("#showModal #gender").text(leave_take.gender);
+                $("#showModal #date_app").text(leave_take.date_app);
+                $("#showModal #hand_over_job").text(leave_take.hand_over_job);
+                $("#showModal #name").text(leave_take.name);
+                $("#showModal #startdate").text(leave_take.startdate);
+                $("#showModal #enddate").text(leave_take.enddate);
+                $("#showModal #shift").text(leave_take.shift);
+                $("#showModal #number_day").text(leave_take.number_day);
+                $("#showModal #reasons").text(leave_take.reasons);
                 
             },
             error:function(err){

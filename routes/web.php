@@ -60,9 +60,9 @@ Route::group(['prefix' => 'emspro','middleware' => ['auth']], function (){
 
     //LeaveDisapproval
     Route::get('/leavedisapproval','Eleave\LeaveDisapprovalController@index')->name('leavedisapproval');
-    Route::get('/leavedisapproval/show/{id}','Eleave\LeaveDisapprovalController@show')->name('showdisapproved');
-    Route::post('/leavedisapproval/updatedisapproval/{id}','Eleave\LeaveDisapprovalController@updateDisapproval')->name('updatedisapproval');
-    Route::get('/leavedisapproval/delete/{id}','Eleave\LeaveDisapprovalController@destroy')->name('deleteleavedisapproval');
+    Route::get('/leavedisapproval/show/{id?}','Eleave\LeaveDisapprovalController@show')->name('showdisapproved');
+    Route::post('/leavedisapproval/updatedisapproval/{id?}','Eleave\LeaveDisapprovalController@updateDisapproval')->name('updatedisapproval');
+    Route::get('/leavedisapproval/delete/{id?}','Eleave\LeaveDisapprovalController@destroy')->name('deleteleavedisapproval');
 });
 
 // login
