@@ -70,6 +70,6 @@ class LeaveApprovalController extends Controller
         // $this->CheckPermission(1);
 
         LeaveTake::where('id',($id))->delete();
-        return redirect('/leaveapproval');
+        return redirect()->route('leaveapproval');
     }
 }

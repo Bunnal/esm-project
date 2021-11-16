@@ -78,10 +78,7 @@ class LeaveDisapprovalController extends Controller
      }
      public function destroy($id)
      {
-         // check userpermissio
-        //  $this->CheckPermission(1);
- 
          LeaveTake::where('id',($id))->delete();
-         return redirect('/leavedisapproval');
+         return redirect()->route('leavedisapproval');
      }
 }
