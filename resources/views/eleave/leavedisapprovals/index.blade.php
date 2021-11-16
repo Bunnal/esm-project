@@ -246,11 +246,14 @@
             $('.yes_btn').click(function(){
                 $.ajax({
                     url:"{{route('deleteleavedisapproval')}}/"+id,
-                    method: "get",
+                    method:"get",
                     success: function() {
                         $('.delete'+id).remove();
                         $('#deleteModal').modal('hide');
                     },
+                    error:function(e){
+                      console.log(e);
+                    }
                 })
             })
     });
