@@ -35,8 +35,8 @@ Route::group(['prefix' => 'emspro','middleware' => ['auth']], function (){
 
      //LeaveApproval
      Route::get('/leaveapproval','Eleave\LeaveApprovalController@index')->name('leaveapproval');
-     Route::get('/leaveapproval/show/{id}','Eleave\LeaveApprovalController@show')->name('showapproved');
-     Route::get('/leaveapproval/delete/{id}','Eleave\LeaveApprovalController@destroy')->name('deleteleaveapproval');
+     Route::get('/leaveapproval/show/{id?}','Eleave\LeaveApprovalController@show')->name('showapproved');
+     Route::get('/leaveapproval/delete/{id?}','Eleave\LeaveApprovalController@destroy')->name('deleteleaveapproval');
      //Balances
      Route::get('/ownbalance','Eleave\BalanceController@index')->name('ownbalance');
      Route::post('/getownbalance','Eleave\BalanceController@getOwnBalance')->name('getownbalance');
