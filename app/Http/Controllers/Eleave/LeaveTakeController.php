@@ -138,15 +138,15 @@ class LeaveTakeController extends Controller
             $LeaveTake ['hand_over_job'] = $LeaveTake->hand_over_job;
             Mail::send('eleave.leaves.leaveReport',['LeaveTake' => $LeaveTake],function($message) use ($LeaveTake,$handoverjobs,$supervisors){
                 if (auth()->user()->email != null){
-                    $message->to(auth()->user()->email)->subject(auth()->user()->username. 'Take Leave ');
+                    $message->to(auth()->user()->email)->subject(auth()->user()->username. ' Take Leave ');
                     if (count($handoverjobs)) {
                         foreach( $handoverjobs as $handoverjob){
-                            $message->to($handoverjob->email)->subject(auth()->user()->username. 'Take Leave ');
+                            $message->to($handoverjob->email)->subject(auth()->user()->username. ' Take Leave ');
                         }
                     }
                     if(count($supervisors)) {
                         foreach($supervisors as $supervisor){
-                            $message->to($supervisor->email)->subject(auth()->user()->username. 'Take Leave ');
+                            $message->to($supervisor->email)->subject(auth()->user()->username. ' Take Leave ');
                         }
                     }
                 }
